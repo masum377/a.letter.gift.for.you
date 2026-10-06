@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Just For You 🙂</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-family:Arial,sans-serif;
+
+    background:
+    linear-gradient(
+        135deg,
+        #f5f5f5,
+        #e8eef5
+    );
+
+    color:#333;
+}
+
+
+/* CARD */
+
+.card{
+
+    width:360px;
+    max-width:90%;
+
+    padding:35px 25px;
+
+    text-align:center;
+
+    background:white;
+
+    border-radius:18px;
+
+    box-shadow:
+    0 10px 35px rgba(0,0,0,.10);
+
+}
+
+
+/* TITLE */
+
+h1{
+    font-size:25px;
+
+    margin-bottom:10px;
+
+    color:#444;
+}
+
+p{
+    color:#777;
+
+    line-height:1.6;
+}
+
+
+/* LETTER */
+
+.letter{
+
+    font-size:65px;
+
+    margin:25px 0;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.letter:hover{
+    transform:scale(1.08);
+}
+
+
+/* BUTTON */
+
+button{
+
+    padding:11px 25px;
+
+    border:none;
+
+    border-radius:20px;
+
+    background:#444;
+
+    color:white;
+
+    font-size:15px;
+
+    cursor:pointer;
+
+}
+
+button:hover{
+    background:#222;
+}
+
+
+/* MESSAGE */
+
+#message{
+
+    display:none;
+
+    margin-top:25px;
+
+    min-height:80px;
+
+}
+
+#text{
+
+    font-size:22px;
+
+    color:#444;
+
+    font-weight:500;
+
+}
+
+
+/* FINAL */
+
+#final{
+
+    display:none;
+
+}
+
+#final h2{
+
+    font-size:30px;
+
+    color:#333;
+
+}
+
+.small{
+    font-size:14px;
+    color:#888;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="card">
+
+
+<!-- FIRST -->
+
+<div id="start">
+
+    <h1>
+        একটা ছোট্ট জিনিস 🙂
+    </h1>
+
+    <p>
+        তেমন কিছু না...<br>
+        Just for you Afrin.
+    </p>
+
+    <div
+    class="letter"
+    onclick="openGift()">
+
+        📩
+
+    </div>
+
+    <button onclick="openGift()">
+        Open
+    </button>
+
+</div>
+
+
+<!-- MESSAGES -->
+
+<div id="message">
+
+    <p id="text">
+        তোমার জন্য একটা কথা আছে...
+    </p>
+
+    <button onclick="nextMessage()">
+        Next →
+    </button>
+
+</div>
+
+
+<!-- FINAL -->
+
+<div id="final">
+
+    <h2>
+         Tumi Pretty!
+    </h2>
+
+    <p>
+        ব্যস, এইটুকুই বলার ছিল।
+    </p>
+
+    <p class="small">
+        — তোমার একজন চমৎকার মানুষ 
+    </p>
+
+</div>
+
+
+</div>
+
+
+<script>
+
+let index = 0;
+
+
+const messages = [
+
+    "একটা কথা বলি? 🙂",
+
+    "তুমি আসলে বেশ একজন বিউটিফুল ",
+
+    "তোমার হাসিটা সুন্দর ",
+
+    "আর হ্যাঁ...",
+
+    "Tumi Pretty! ✨"
+
+];
+
+
+function openGift(){
+
+    document.getElementById(
+        "start"
+    ).style.display="none";
+
+    document.getElementById(
+        "message"
+    ).style.display="block";
+
+    document.getElementById(
+        "text"
+    ).innerText=messages[0];
+
+}
+
+
+function nextMessage(){
+
+    index++;
+
+    if(index < messages.length){
+
+        document.getElementById(
+            "text"
+        ).innerText=
+        messages[index];
+
+    }
+
+    else{
+
+        document.getElementById(
+            "message"
+        ).style.display="none";
+
+        document.getElementById(
+            "final"
+        ).style.display="block";
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
